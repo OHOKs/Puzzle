@@ -1,5 +1,6 @@
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 let counter = 0;
+let starttime = 0;
 
 function createKocka(szam, id){
     let a = document.createElement("div");
@@ -27,6 +28,7 @@ function Start(){
         }
     }
 
+    starttime = Date.now();
     document.getElementById("SB").disabled = true;
 }
 
@@ -84,9 +86,12 @@ function ellenorzes(){
   let n = document.getElementById("4x2").childNodes[0].id == 14
   let ny = document.getElementById("4x3").childNodes[0].id == 15
 
-  if(a && b && c && d && e && f && g && h && i && j && k && l && m && n && ny){
-    alert(`nyertel, ${counter}`)
-
+    if(a && b && c && d && e && f && g && h && i && j && k && l && m && n && ny){
+        elteltIdo = new Date( Date.now() - starttime)
+        alert(`nyertel, ${counter} kattintas, 
+        ${elteltIdo.getHours() - 1} ora 
+        ${elteltIdo.getMinutes()} perc 
+        ${elteltIdo.getSeconds()} masodperc`)
     document.getElementById("tablee").disabled = true
   }
 }
